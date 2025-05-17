@@ -8,5 +8,5 @@ Ethical considerations and model evaluation are woven throughout the curriculum,
 
 [Full Syllabus](Syllabus.md)
 
-<a href="https://github.com/simonguest/dp_applied_genai">Applied Generative AI Course</a> © 2025 by <a href="https://github.com/simonguest">Simon Guest</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+<a href="https://github.com/simonguest/dp_applied_genai">Applied Generative AI Course</a> © 2025 by <a href="https://github.com/simonguest">Simon Guest</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
 
