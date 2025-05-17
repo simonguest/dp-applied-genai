@@ -1,0 +1,219 @@
+# Draft Syllabus (2025-05-16)
+
+- **Introduction**
+	- Course overview and learning objectives
+		- Course and Hands on Labs format/expecations
+	- Tools/accounts pre-requisites
+	- How to reach out for help!
+- **Module 1: A Brief History of Generative AI**
+	- A recap of ML / neural network architectures
+		- Unsupervised, supervised, and reinforcement learning
+		- CNNs, RNNs, LSTM
+		- Early generative models: GANs and VAEs
+	- "Attention is all you need"
+		- Why was the 2017 paper so important?
+		- The Transformer Architecture
+		- Evolution of BERT and GPT models
+		- Introduction of ChatGPT
+		- The role of Generative AI in society and ethical implications
+	- Transformer Architecture in depth
+		- Tokenization
+		- Encoders/Decoders
+		- Positional Encoding
+		- Training and Infererence
+	- Brief introduction to Python
+		- Why Python?
+		- Basic syntax and resources
+	- Hands-on Lab: nanoGPT
+		- Setting up your Colab environment
+		- Using nanoGPT to create and train your first GPT
+		- Reproducing GPT-2
+	- Reflection:
+		- What did we learn? Observations?
+		- What did we produce? Model types and file formats.
+- **Module 2: Beyond ChatGPT: Exploring Hosted LLMs**
+	- Autocomplete vs. Instructional
+		- Chat templates and token types
+		- Conversational structure and memory
+		- System Prompt
+		- Context Windows
+		- Temperature, top_p, and other parameters
+		- Token Streaming and Tokens per Sec
+	- Exploring Today's Models
+		- Model Lineage
+			- Closed vs. Open Source vs. Open Weight Models
+			- Differences between models
+			- Families, History, Sizes, and Accuracy
+		- Consuming Models
+			- The OpenAI API specification
+			- OpenRouter
+		- Costs
+			- Determining costs for hosting and running models
+	- Hands on Lab: Using Models via OpenRouter
+		- Exploring the OpenAI Python library
+		- Configuring Secrets in CoLab
+		- Accessing a commercial model via OpenRouter
+		- Exploring parameters and responses
+		- Implementing Gradio for a better UI
+		- Implement Token Streaming
+	- Creative Exercise: Creating your first "Interactive Game Character"
+		- Develop a persona for your first game character
+		- Implement using large and small model types
+	- Reflection:
+		- What did we learn? Observations
+- **Module 3: Multimedia and Multimodal Models**
+	- How about model types beyond NLP/text?
+	- Why would we want to run our own models vs. accessing hosted ones?
+	- Beyond text generation (image, audio, and multimodal)
+		- Understanding diffusers for image generation
+			- Providing precise control over the output with ControlNet
+		- VLM architectures - combining CNNs and Transformers
+		- Examples of multimodal AI in games
+	* Hands on Lab: Exploring image models with Replicate
+		* Introducing Replicate
+			* Exploring vision models
+			* The Replicate Python API
+		* Use Colab and Flux Pro for text-image generation of a game background
+	- Challenges with hosted models
+		- Access, cost, parameterization, fine-tuning
+		- Model Registries
+	- Introducing Hugging Face
+		- Models, Datasets, Spaces
+		- Anatomy of a Model: Naming, Files, and Model Cards
+		- The HF Transformers Library
+	- Hands on Lab: Using Hugging Face to download and run a VLM model
+		- Using the Transformers library in Colab
+		- Using ControlNet to sketch game scenery
+		- Running a simple VLM model for picture caption generation and image exploration
+- **Module 4: Increasing Model Accuracy**
+	* Hallucination in models
+		* How do models get trained?
+		* Dataset curation, and the impact on performance and bias
+		* Techniques to increase accuracy
+	- Introducing RAG (Retrieval Augmented Generation)
+		- What is RAG and how does it work? Use cases and scenarios.
+	- Hands on Lab: Using RAG to accurately query game character profiles
+		- Setting up RAG in Colab using pgvector
+		- Creating a "gamer profile service" using RAG
+	- Increasing accuracy of models using fine tuning
+		- Different methods of fine tuning
+		- Prompt tuning for NLP models
+		- Adapter layers and LoRA for image-based fine-tuning
+	- Hands on Lab: Creating a "Sprite Generator" using fine-tuning techniques
+		- Downloading appropriate model
+		- Building test and validation datasets
+		- Fine-tuning and observing the results
+- **Module 5: Agents and Tools**
+	- When a single context model isn't enough (and context window decay)
+	- Introducing Agents
+		- What's an agent?
+		- Agent-based frameworks
+			- Langchain, Autogen, Crew.ai
+		- How can agents increase the game narrative and player experience?
+	- Hands on Lab: Simulated RPG with Agents
+		- Setting up Autogen in Colab
+		- Creating characters and letting them loose...
+	- Equipping Agents with Tools
+		- Why tools?
+			- The strawberry problem: Tokenization and math
+		- Examples of tools
+			- Calculator, weather service, code executor
+		- Tool APIs
+			- OpenAI's tooling API
+			- Introducing MCP (Model Context Protocol)
+	- Hands on Lab: Using MCP to help a character navigate
+		- Downloading Python-based MCP libraries
+		- Setting up the project
+- **Module 6: Running Models on Local Hardware**
+	- Advantages/use cases for running models on local hardware - desktop, web, mobile
+		- Environmental considerations and impact
+		- Measuring TOPS and TPW
+	- Hardware requirements for different model types/sizes
+		- CUDA vs. ONNX vs. Metal/MLX
+		- WebGPU
+	- Challenges for running models locally
+		- GPU types, CUDA and VRAM limitations
+	- How models can be made smaller
+		- Quantization and formats (GGUF)
+		- Model distillation
+	- Running Models Locally on a Gaming PC
+		- Direct GPU/CUDA integration
+		- Running quantized models
+			- Llama.cpp (and UIs - LM Studio)
+			- Executorch
+	- Hands on Lab: Running local models on a gaming PC
+		- Setting up your local environment (python, uv, nvidia-smi)
+		- Downloading and running small models
+		- Downloading and running a STT model for gameplay interaction.
+		- Experiencing "Out of VRAM" with medium models
+		- Installing LM studio and downloading models
+		- Using Llama.cpp with CPU only; extending to GPU
+- **Module 7: Using Models within Game Engines**
+	- Designing interactions with LLMs
+		- NPC dialogue, quest generation, player assistance
+		- Ensuring meaningful interactions that enhance your game
+		- Performance considerations and optimization strategies for running models
+	- Using models in Unity
+		- UnityWebRequest for hosted models
+		- Hosting and accessing local models in Unity
+		- Scripting full interaction flows
+	- Using models in Unreal
+		- Unreal HTTP and JSON libraries for hosted models
+		- Hosting and accessing local models in Unreal
+		- Scripting full interaction flows
+	- Using MCP in Unity/Unreal
+		- Using MCP to interact with game mechanics and sprites
+	- Hands on Lab: Running hosted and local models in your preferred game engine
+		- Designing your interaction and flow
+		- Setting up your environment
+		- Hosting/downloading the right models
+		- Creating and implementing scripts
+- **Module 8: Evaluating Models**
+	- Brief overview of software testing
+	- Challenges with evaluating non-deterministic models
+		- Why clever string evaluation doesn't work!
+		- Reducing, but not eliminating, with temperature settings
+	- How commercial models are evaluated
+		- HumanEval
+		- MMLU
+		- SQuAD
+		- User feedback and qualitative evaluations
+	- Evaluating NLP models
+		- Cosine similarilty
+		- Full test suites (W&B)
+	- Hands on Lab: Using W&B to evaluate a mix of NLP models
+		- Model selection
+		- Dataset creation
+		- Setting up and configuring W&B
+		- Creating and running your first evaluation
+- **Module 9: Ethics and Safety when using Generative AI**
+	- What are the ethical and safety concerns for generative AI in games?
+		- Exploring bias in many training datasets
+		- Are training datasets unsafe by default?
+	- Safety risks
+		- Model Off Track
+		- Breaking The Model
+		- Profanity
+		- Euphemisms and Double Entendres
+	- Mitigating these risks
+		- Custom system prompt
+		- Model fine tuning
+		- Input and output filtering
+		- LLM as a judge
+	- Creating and implementing a safe AI experience
+		- Evaluation platform
+		- Datasets (safe, unsafe, exemplar prompting)
+		- Evaluation prompt creation
+			- MLCommons
+		- Other guardrails
+			- Disclaimers
+			- Logging
+			- Flagging
+	- Remaining challenges
+		- Streaming, multilingual, regional-specific, multimodal
+	- Hands on Lab: Implementing LLM as a Judge
+		- Small model selection
+		- Dataset experimentation
+		- Implementing LLM as a Judge using GPT 4o-mini
+- **Module 10: Final Project - Using Generative AI in Game Development**
+	- A three week [final project](Final%20Project.md)
