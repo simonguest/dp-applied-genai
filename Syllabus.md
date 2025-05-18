@@ -141,6 +141,7 @@
 		- Running quantized models
 			- Llama.cpp (and UIs - LM Studio)
 			- Executorch
+			- vLLM and Paged Attention
 	- Hands on Lab: Running local models on a gaming PC
 		- Setting up your local environment (python, uv, nvidia-smi)
 		- Downloading and running small models
