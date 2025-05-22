@@ -1,6 +1,6 @@
 # Applied Generative AI Course (DigiPen)
 
-"Applied Generative AI" is a comprehensive 15-week course designed for computer science majors (BSCS, BSCSML, BSCSGD) , focusing on the fundamentals and practical applications of generative AI within the gaming industry.
+"Applied Generative AI" is a comprehensive 15-week course designed for computer science majors (BSCS, BSCSML, BSCSGD), focusing on the fundamentals and practical applications of generative AI within the gaming industry.
 
 Students will explore neural network architectures, including the impact of the Transformer model, delve into large language models beyond ChatGPT, and experiment with multimodal models for image and audio generation. The course offers hands-on experience with both hosted and locally run models, integration with game engines like Unity and Unreal, and the development of AI-driven game characters and environments. 
 
