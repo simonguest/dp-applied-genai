@@ -1,0 +1,1 @@
+Sitemap: https://simonguest.github.io/dp-applied-genai/sitemap.xml
