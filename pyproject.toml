@@ -1,0 +1,9 @@
+[project]
+name = "dp-applied-genai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "quarto-cli>=1.7.31",
+]

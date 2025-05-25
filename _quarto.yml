@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: dist
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "!LICENSE.md"
+    - "!Syllabus.md"
+    - "!Final Project.md"
+website:
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Introduction"
+        href: src/intro.qmd
+      - section: "Module 1: A Brief History of Generative AI"
+        href: src/01/overview.qmd
+        contents:
+          - href: src/01/recap.qmd
+            target: blank
+          - src/01/nanogpt.ipynb

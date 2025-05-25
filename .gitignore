@@ -1,0 +1,9 @@
+# Virtual env folder
+.venv
+
+# Quarto config folder
+.quarto
+
+# Quarto build folder
+dist
+/.quarto/
