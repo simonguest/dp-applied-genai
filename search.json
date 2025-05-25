@@ -1,0 +1,55 @@
+[
+  {
+    "objectID": "src/01/nanogpt.html",
+    "href": "src/01/nanogpt.html",
+    "title": "Placeholder for NanoGPT workbook",
+    "section": "",
+    "text": "print(\"Hello\")\n\nHello",
+    "crumbs": [
+      "Module 1: A Brief History of Generative AI",
+      "Placeholder for NanoGPT workbook"
+    ]
+  },
+  {
+    "objectID": "src/01/recap.html#slide-1",
+    "href": "src/01/recap.html#slide-1",
+    "title": "Neural Network Architectures - A recap",
+    "section": "Slide 1",
+    "text": "Slide 1\n\nBullet 1\nBullet 2",
+    "crumbs": [
+      "Module 1: A Brief History of Generative AI",
+      "Neural Network Architectures - A recap"
+    ]
+  },
+  {
+    "objectID": "src/01/recap.html#slide-2",
+    "href": "src/01/recap.html#slide-2",
+    "title": "Neural Network Architectures - A recap",
+    "section": "Slide 2",
+    "text": "Slide 2\n\nBullet 1\nBullet 2",
+    "crumbs": [
+      "Module 1: A Brief History of Generative AI",
+      "Neural Network Architectures - A recap"
+    ]
+  },
+  {
+    "objectID": "src/01/overview.html",
+    "href": "src/01/overview.html",
+    "title": "Overview of Module 1",
+    "section": "",
+    "text": "Overview of Module 1",
+    "crumbs": [
+      "Module 1: A Brief History of Generative AI"
+    ]
+  },
+  {
+    "objectID": "src/intro.html",
+    "href": "src/intro.html",
+    "title": "",
+    "section": "",
+    "text": "An Introduction",
+    "crumbs": [
+      "Introduction"
+    ]
+  }
+]
