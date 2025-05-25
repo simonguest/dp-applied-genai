@@ -4,7 +4,7 @@
     "href": "src/01/nanogpt.html",
     "title": "Placeholder for NanoGPT workbook",
     "section": "",
-    "text": "print(\"Hello\")\n\nHello",
+    "text": "print(\"Hello 123\")\n\nHello 123",
     "crumbs": [
       "Module 1: A Brief History of Generative AI",
       "Placeholder for NanoGPT workbook"
