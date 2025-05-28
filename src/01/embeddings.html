@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>overview</title>
+<title>embeddings</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/overview.html">Module 1: A Brief History of Generative AI</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/overview.html">Module 1: A Brief History of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings.html">Vector Embeddings</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../src/01/overview.html" class="sidebar-item-text sidebar-link active">
+            <a href="../../src/01/overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 1: A Brief History of Generative AI</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/01/embeddings.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/01/embeddings.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Vector Embeddings</span></a>
   </div>
 </li>
@@ -148,16 +148,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/overview.html">Module 1: A Brief History of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings.html">Vector Embeddings</a></li></ol></nav></header>
 
 
 
 
-<section id="overview-of-module-1" class="level1">
-<h1>Overview of Module 1</h1>
-<p>TBD</p>
+<section id="vector-embeddings" class="level1">
+<h1>Vector Embeddings</h1>
+<section id="what-are-vector-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-vector-embeddings">What are Vector Embeddings?</h2>
+<p>Vector embeddings are numerical representations that map complex data—such as words, sentences, or images—into a continuous, high-dimensional vector space. This transformation enables machines to capture and process semantic relationships and contextual meanings inherent in the data. For instance, in natural language processing (NLP), word embeddings position semantically similar words closer together in the vector space, facilitating tasks like sentiment analysis, machine translation, and information retrieval.</p>
+<p>A foundational technique for generating word embeddings is Word2Vec, introduced by Tomas Mikolov and his team at Google in 2013. Word2Vec employs shallow neural networks to learn word associations from large text corpora, capturing semantic relationships by predicting a word based on its surrounding context (Continuous Bag of Words model) or predicting surrounding context words based on a target word (Skip-gram model). This approach results in embeddings where words with similar meanings are positioned closely in the vector space, enabling the model to perform tasks like detecting synonymous words or suggesting additional words for a partial sentence.</p>
+<p>Beyond text, vector embeddings are also applied to other data types, such as images and user profiles. In image processing, embeddings can represent visual items as vectors, capturing features that facilitate tasks like object recognition and image search. Similarly, user profile vectors encapsulate a user’s preferences and behaviors, aiding in personalized recommendation systems and targeted advertising. By transforming diverse data into vector embeddings, machines can efficiently process and analyze complex information, uncovering patterns and relationships that might be challenging to detect through traditional methods.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
