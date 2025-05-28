@@ -19,4 +19,6 @@ website:
         contents:
           - href: src/01/recap.qmd
             target: blank
-          - src/01/nanogpt.ipynb
+          - href: src/01/embeddings.qmd
+          - href: src/01/embeddings_using_spacy.ipynb
+          - href: src/01/embeddings_using_openai.ipynb
