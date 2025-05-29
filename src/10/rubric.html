@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>embeddings</title>
+<title>rubric</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/overview.html">Module 1: A Brief History of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings.html">Vector Embeddings</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/10/rubric.html">Module 10: Final Project</a></li><li class="breadcrumb-item"><a href="../../src/10/rubric.html">Final Project: AI-Enhanced Game Environment</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/01/embeddings.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../src/01/embeddings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vector Embeddings</span></a>
   </div>
 </li>
@@ -152,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/10/rubric.html" class="sidebar-item-text sidebar-link">
+  <a href="../../src/10/rubric.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Final Project: AI-Enhanced Game Environment</span></a>
   </div>
 </li>
@@ -165,18 +165,41 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/overview.html">Module 1: A Brief History of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings.html">Vector Embeddings</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/10/rubric.html">Module 10: Final Project</a></li><li class="breadcrumb-item"><a href="../../src/10/rubric.html">Final Project: AI-Enhanced Game Environment</a></li></ol></nav></header>
 
 
 
 
-<section id="vector-embeddings" class="level1">
-<h1>Vector Embeddings</h1>
-<section id="what-are-vector-embeddings" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-vector-embeddings">What are Vector Embeddings?</h2>
-<p>Vector embeddings are numerical representations that map complex data—such as words, sentences, or images—into a continuous, high-dimensional vector space. This transformation enables machines to capture and process semantic relationships and contextual meanings inherent in the data. For instance, in natural language processing (NLP), word embeddings position semantically similar words closer together in the vector space, facilitating tasks like sentiment analysis, machine translation, and information retrieval.</p>
-<p>A foundational technique for generating word embeddings is Word2Vec, introduced by Tomas Mikolov and his team at Google in 2013. Word2Vec employs shallow neural networks to learn word associations from large text corpora, capturing semantic relationships by predicting a word based on its surrounding context (Continuous Bag of Words model) or predicting surrounding context words based on a target word (Skip-gram model). This approach results in embeddings where words with similar meanings are positioned closely in the vector space, enabling the model to perform tasks like detecting synonymous words or suggesting additional words for a partial sentence.</p>
-<p>Beyond text, vector embeddings are also applied to other data types, such as images and user profiles. In image processing, embeddings can represent visual items as vectors, capturing features that facilitate tasks like object recognition and image search. Similarly, user profile vectors encapsulate a user’s preferences and behaviors, aiding in personalized recommendation systems and targeted advertising. By transforming diverse data into vector embeddings, machines can efficiently process and analyze complex information, uncovering patterns and relationships that might be challenging to detect through traditional methods.</p>
+<section id="final-project-ai-enhanced-game-environment" class="level1">
+<h1>Final Project: AI-Enhanced Game Environment</h1>
+<p>Students will design and implement a game environment that integrates generative AI to create dynamic, engaging player experiences. The project should demonstrate the use of at least two different generative AI techniques covered in the course, such as LLMs for dialogue, procedural generation for levels or assets, or multimodal AI for interactive audio-visual elements. The final deliverable should include a playable game prototype, a technical presentation detailing the integration and optimization of AI models, and an ethical evaluation of the AI’s impact on gameplay.</p>
+<section id="rubric" class="level2">
+<h2 class="anchored" data-anchor-id="rubric">Rubric</h2>
+<ul>
+<li><strong>Technical Implementation (40%)</strong>
+<ul>
+<li>Integration of AI Models (20%): Effective integration of at least two generative AI techniques. Models should be appropriately chosen and optimized for their respective tasks.</li>
+<li>Functionality (20%): The game should be fully playable with AI components functioning as intended, enhancing gameplay and interactions.</li>
+</ul></li>
+<li><strong>Innovation and Creativity (20%)</strong>
+<ul>
+<li>Originality (10%): Creative use of AI to provide unique and compelling gameplay experiences.</li>
+<li>Design (10%): Aesthetic and functional design that leverages AI to enhance the game’s visual and interactive elements.</li>
+</ul></li>
+<li><strong>Presentation (20%)</strong>
+<ul>
+<li>Presentation (20%): Clear and engaging presentation of the game, highlighting AI features and their impact on player experience. Comprehensive explanation of the AI integration process, including model selection, challenges faced, and solutions implemented.</li>
+</ul></li>
+<li><strong>Ethical Considerations (10%)</strong>
+<ul>
+<li>Ethical Analysis (10%): Evaluation of potential biases, ethical implications, and societal impacts of the AI components used in the game. Proposals for mitigating identified risks.</li>
+</ul></li>
+<li><strong>Collaboration and Effort (10%)</strong>
+<ul>
+<li>Teamwork (10%): Effective collaboration among team members, with roles and contributions clearly defined. Measured by peer feedback.</li>
+</ul></li>
+</ul>
+<p>Teams will be 2-4 students, depending on class size. The final presentations will be held on the last class of the semester. We will also bring in 2-3 industry guest judges to provide feedback on projects.</p>
 
 
 </section>

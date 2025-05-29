@@ -25,7 +25,7 @@
     "text": "Slide 1\n\nBullet 1\nBullet 2",
     "crumbs": [
       "Module 1: A Brief History of Generative AI",
-      "Neural Network Architectures - A recap"
+      "Slides"
     ]
   },
   {
@@ -36,7 +36,34 @@
     "text": "Slide 2\n\nBullet 1\nBullet 2",
     "crumbs": [
       "Module 1: A Brief History of Generative AI",
-      "Neural Network Architectures - A recap"
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "src/01/intro.html",
+    "href": "src/01/intro.html",
+    "title": "Introduction to Module 1",
+    "section": "",
+    "text": "Introduction to Module 1"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Applied Generative AI Course (DigiPen)",
+    "section": "",
+    "text": "“Applied Generative AI” is a comprehensive 15-week course designed for computer science majors (BSCS, BSCSML, BSCSGD), focusing on the fundamentals and practical applications of generative AI within the gaming industry.\nStudents will explore neural network architectures, including the impact of the Transformer model, delve into large language models beyond ChatGPT, and experiment with multimodal models for image and audio generation. The course offers hands-on experience with both hosted and locally run models, integration with game engines like Unity and Unreal, and the development of AI-driven game characters and environments.\nEthical considerations and model evaluation are woven throughout the curriculum, ensuring students not only master technical skills but also understand the broader societal implications of their work. Through lectures, lab sessions, and a final project, students will gain the expertise to leverage generative AI in creating innovative, interactive gaming experiences.",
+    "crumbs": [
+      "Course Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Applied Generative AI Course (DigiPen)",
+    "section": "",
+    "text": "“Applied Generative AI” is a comprehensive 15-week course designed for computer science majors (BSCS, BSCSML, BSCSGD), focusing on the fundamentals and practical applications of generative AI within the gaming industry.\nStudents will explore neural network architectures, including the impact of the Transformer model, delve into large language models beyond ChatGPT, and experiment with multimodal models for image and audio generation. The course offers hands-on experience with both hosted and locally run models, integration with game engines like Unity and Unreal, and the development of AI-driven game characters and environments.\nEthical considerations and model evaluation are woven throughout the curriculum, ensuring students not only master technical skills but also understand the broader societal implications of their work. Through lectures, lab sessions, and a final project, students will gain the expertise to leverage generative AI in creating innovative, interactive gaming experiences.",
+    "crumbs": [
+      "Course Overview"
     ]
   },
   {
@@ -72,24 +99,36 @@
     ]
   },
   {
-    "objectID": "src/intro.html",
-    "href": "src/intro.html",
-    "title": "",
+    "objectID": "src/10/rubric.html",
+    "href": "src/10/rubric.html",
+    "title": "Final Project: AI-Enhanced Game Environment",
     "section": "",
-    "text": "An Introduction",
+    "text": "Students will design and implement a game environment that integrates generative AI to create dynamic, engaging player experiences. The project should demonstrate the use of at least two different generative AI techniques covered in the course, such as LLMs for dialogue, procedural generation for levels or assets, or multimodal AI for interactive audio-visual elements. The final deliverable should include a playable game prototype, a technical presentation detailing the integration and optimization of AI models, and an ethical evaluation of the AI’s impact on gameplay.\n\n\n\nTechnical Implementation (40%)\n\nIntegration of AI Models (20%): Effective integration of at least two generative AI techniques. Models should be appropriately chosen and optimized for their respective tasks.\nFunctionality (20%): The game should be fully playable with AI components functioning as intended, enhancing gameplay and interactions.\n\nInnovation and Creativity (20%)\n\nOriginality (10%): Creative use of AI to provide unique and compelling gameplay experiences.\nDesign (10%): Aesthetic and functional design that leverages AI to enhance the game’s visual and interactive elements.\n\nPresentation (20%)\n\nPresentation (20%): Clear and engaging presentation of the game, highlighting AI features and their impact on player experience. Comprehensive explanation of the AI integration process, including model selection, challenges faced, and solutions implemented.\n\nEthical Considerations (10%)\n\nEthical Analysis (10%): Evaluation of potential biases, ethical implications, and societal impacts of the AI components used in the game. Proposals for mitigating identified risks.\n\nCollaboration and Effort (10%)\n\nTeamwork (10%): Effective collaboration among team members, with roles and contributions clearly defined. Measured by peer feedback.\n\n\nTeams will be 2-4 students, depending on class size. The final presentations will be held on the last class of the semester. We will also bring in 2-3 industry guest judges to provide feedback on projects.",
     "crumbs": [
-      "Introduction"
+      "Module 10: Final Project",
+      "Final Project: AI-Enhanced Game Environment"
+    ]
+  },
+  {
+    "objectID": "src/10/rubric.html#rubric",
+    "href": "src/10/rubric.html#rubric",
+    "title": "Final Project: AI-Enhanced Game Environment",
+    "section": "",
+    "text": "Technical Implementation (40%)\n\nIntegration of AI Models (20%): Effective integration of at least two generative AI techniques. Models should be appropriately chosen and optimized for their respective tasks.\nFunctionality (20%): The game should be fully playable with AI components functioning as intended, enhancing gameplay and interactions.\n\nInnovation and Creativity (20%)\n\nOriginality (10%): Creative use of AI to provide unique and compelling gameplay experiences.\nDesign (10%): Aesthetic and functional design that leverages AI to enhance the game’s visual and interactive elements.\n\nPresentation (20%)\n\nPresentation (20%): Clear and engaging presentation of the game, highlighting AI features and their impact on player experience. Comprehensive explanation of the AI integration process, including model selection, challenges faced, and solutions implemented.\n\nEthical Considerations (10%)\n\nEthical Analysis (10%): Evaluation of potential biases, ethical implications, and societal impacts of the AI components used in the game. Proposals for mitigating identified risks.\n\nCollaboration and Effort (10%)\n\nTeamwork (10%): Effective collaboration among team members, with roles and contributions clearly defined. Measured by peer feedback.\n\n\nTeams will be 2-4 students, depending on class size. The final presentations will be held on the last class of the semester. We will also bring in 2-3 industry guest judges to provide feedback on projects.",
+    "crumbs": [
+      "Module 10: Final Project",
+      "Final Project: AI-Enhanced Game Environment"
     ]
   },
   {
     "objectID": "src/01/embeddings_using_spacy.html",
     "href": "src/01/embeddings_using_spacy.html",
-    "title": "Exploring Vector Embeddings using SpaCy",
+    "title": "Exploring Vector Embeddings using spaCy",
     "section": "",
     "text": "!python -m spacy download en_core_web_md\n\n\nCollecting en-core-web-md==3.8.0\n\n  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl (33.5 MB)\n\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 33.5/33.5 MB 119.2 MB/s eta 0:00:00 MB/s eta 0:00:01\n\n✔ Download and installation successful\n\nYou can now load the package via spacy.load('en_core_web_md')\n\n\n\n\n\nimport spacy\n\n# Load the transformer-based model\nnlp = spacy.load(\"en_core_web_md\")\n\n# Process the sentence\ndoc = nlp(\"Your sentence goes here.\")\n\n# Access the transformer embeddings\nprint(doc.vector)\n\n[-6.97152019e-01  2.18697220e-01 -1.38046190e-01 -1.08199000e-01\n -4.19315815e-01 -8.13699961e-02  7.24241957e-02 -1.78819984e-01\n  1.13747403e-01  2.46984005e+00 -3.29926014e-01  2.82547921e-02\n -5.48959970e-02  2.99684051e-02 -5.58394015e-01 -1.04821967e-02\n -2.21652001e-01  5.17783225e-01 -3.50299999e-02  1.50423586e-01\n  5.30120265e-03 -2.72976011e-02  2.28738993e-01 -1.36507794e-01\n -1.03261396e-01  7.22399331e-04  5.02846055e-02 -1.99215204e-01\n -1.01365879e-01 -1.11575998e-01 -1.78038403e-01  6.79820497e-03\n -9.29618105e-02  6.07629940e-02  2.95340002e-01  1.20111801e-01\n -1.61686037e-02 -2.44086221e-01 -7.56460056e-03 -6.65706024e-02\n  1.92149192e-01  7.51752108e-02  2.53803611e-01 -1.88340992e-01\n -1.17564596e-01 -2.12039659e-03  1.01816002e-02  7.75826126e-02\n -1.24749206e-01 -5.66560030e-02 -2.08447978e-01  3.47281992e-01\n  1.16196303e-02  1.79484040e-02 -7.02484027e-02  1.15319644e-03\n  1.97426409e-01 -1.00111999e-01 -1.24508597e-01 -1.41780540e-01\n -1.78172797e-01 -2.11289600e-01  2.18443982e-02  1.27682000e-01\n  3.74133795e-01 -1.51595995e-01 -3.41325961e-02  9.77133662e-02\n  6.47788048e-02 -2.28141365e-03  7.83202052e-02 -1.13110803e-01\n  2.01876000e-01 -1.84775203e-01 -9.23043936e-02  7.53164068e-02\n  2.42122173e-01 -1.55999213e-01 -1.77634597e-01  3.52544010e-01\n  2.09900029e-02 -8.14503878e-02 -7.61779994e-02 -1.08398601e-01\n  8.06596887e-04 -1.17221996e-01  3.70903581e-01 -3.82573605e-01\n  1.13339402e-01  6.38799965e-02  4.87839989e-02  1.11724017e-02\n -2.10549995e-01 -2.32166201e-01  2.71339957e-02 -1.05895400e-01\n -8.21316019e-02 -1.36719197e-01  1.94922403e-01  9.00288969e-02\n -2.03906000e-02 -5.72646037e-02 -6.32830113e-02 -2.16079946e-03\n  3.47781420e-01 -7.51140714e-01 -1.32000595e-01  2.23525792e-01\n -1.34800062e-01 -7.01081976e-02 -1.20499209e-01 -1.10631801e-01\n -2.99679935e-02  3.31140049e-02 -1.90479994e-01  2.59587578e-02\n -2.32714295e-01 -1.54381797e-01 -2.14283153e-01 -5.05781583e-02\n  2.64545977e-02  9.80264023e-02 -5.95882013e-02  4.05658074e-02\n -1.22122012e-01  7.50298128e-02 -2.38914400e-01 -1.07187197e-01\n -9.12590027e-02 -5.44338040e-02 -6.37305081e-02  3.01516000e-02\n  3.57600003e-02 -4.81119938e-02  4.11874577e-02 -4.89199185e-04\n -2.48414010e-01  4.66838032e-02 -6.15505986e-02 -9.11279991e-02\n -1.55588603e+00  1.15547404e-01  4.71094608e-01  1.36772003e-02\n -1.76563784e-01 -2.62403011e-01  5.25702126e-02  6.38338029e-02\n -4.48758081e-02  1.32255983e-02  1.12116680e-01  1.08679593e-01\n -4.44696583e-02 -2.21425802e-01  5.18162027e-02 -1.50758803e-01\n -7.77864084e-02  3.21772024e-02  6.03040047e-02  3.27161960e-02\n  1.03638791e-01 -4.77199033e-02  9.17016044e-02  1.40584603e-01\n -3.27609211e-01 -1.54220983e-01  1.24089994e-01  1.38952613e-01\n  1.31873950e-01 -5.28779998e-02 -6.58353567e-02 -3.56023610e-01\n  2.31844187e-01 -1.06215857e-01  1.86655998e-01  1.56995997e-01\n  1.85908005e-01  3.24924022e-01 -1.65576078e-02  8.16599950e-02\n  3.61593887e-02 -5.66977970e-02 -1.68583602e-01  9.05743167e-02\n -5.88941984e-02  1.67362005e-01 -1.70045406e-01  8.02140012e-02\n -1.94981899e-02 -2.77832001e-02 -7.93479979e-02  3.17424014e-02\n -8.90523940e-02  1.91893607e-01  3.88000086e-02 -6.27299994e-02\n -8.36481005e-02  4.23263945e-02  7.74891973e-02  1.37193128e-01\n  1.37862414e-01 -2.43982226e-01 -1.78334787e-01  5.08332029e-02\n -2.05801398e-01 -1.59099787e-01  1.63361400e-01  7.87623972e-02\n  3.28240059e-02  2.60260791e-01 -8.97658020e-02  1.05211198e-01\n -6.95054084e-02 -1.95324600e-01  2.68915296e-02  2.13230066e-02\n -1.77296400e-01  1.42974123e-01 -3.70002925e-01 -1.35940164e-02\n -2.12079599e-01 -3.92153971e-02 -2.34284997e-01 -1.40606612e-01\n -5.72265983e-02 -1.73677206e-01 -1.66331977e-01 -1.49255823e-02\n  1.24044396e-01  4.69671972e-02 -3.06127965e-02 -2.26371996e-02\n  2.73019969e-02  1.12521604e-01  2.97795925e-02 -4.96900044e-02\n  2.15790793e-01  5.44206016e-02 -9.82873961e-02  1.00847997e-01\n  7.88234025e-02 -1.43564194e-01  6.02781996e-02  1.86304390e-01\n  3.09691608e-01 -1.14585742e-01 -9.80440006e-02 -3.35257381e-01\n -1.91382408e-01  2.87827969e-01  2.40156054e-02 -1.48231804e-01\n  2.55874395e-01 -1.26682013e-01  7.58140162e-03  2.74650395e-01\n -2.31867835e-01 -2.55484015e-01  1.58447400e-01 -1.42529011e-02\n -6.70429990e-02  5.13227992e-02 -2.59310007e-02  2.80774593e-01\n  2.31586009e-01  4.92020026e-02 -1.29136801e-01  4.56259996e-02\n  5.28154552e-01  3.36851999e-02  2.51724068e-02 -3.68707597e-01\n -6.16259985e-02 -2.11868003e-01 -1.18208960e-01  7.41239935e-02\n  8.66817906e-02 -6.85140043e-02  2.21496016e-01  2.98002005e-01\n -1.22550009e-02 -1.21386006e-01 -6.46999863e-04 -1.92434005e-02\n -6.23565838e-02  5.79879992e-02  8.24557990e-02 -1.99402198e-01\n -7.05839843e-02 -1.12907194e-01 -2.45563790e-01 -1.03904210e-01\n -1.83011800e-01 -2.00293809e-01  8.10237974e-02  8.90928060e-02\n -7.75564015e-02 -2.64433593e-01  1.04819983e-02  6.57932460e-02]\n\n\n\nimport spacy\n\n# Load the pre-trained model\nnlp = spacy.load(\"en_core_web_md\")\n\n# Process the sentences\ndoc1 = nlp(\"The cat sat on the mat.\")\ndoc2 = nlp(\"A feline rested on a rug.\")\n\n# Compute similarity\nsimilarity_score = doc1.similarity(doc2)\n\nprint(f\"Similarity score: {similarity_score}\")\n\nSimilarity score: 0.7523308992385864",
     "crumbs": [
       "Module 1: A Brief History of Generative AI",
-      "Exploring Vector Embeddings using SpaCy"
+      "Exploring Vector Embeddings using spaCy"
     ]
   }
 ]
