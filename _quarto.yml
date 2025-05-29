@@ -12,13 +12,17 @@ website:
     style: "docked"
     search: true
     contents:
-      - text: "Introduction"
-        href: src/intro.qmd
+      - text: "Course Overview"
+        href: index.qmd
       - section: "Module 1: A Brief History of Generative AI"
         href: src/01/overview.qmd
         contents:
-          - href: src/01/recap.qmd
+          - text: "Slides"
+            href: src/01/recap.qmd
             target: blank
           - href: src/01/embeddings.qmd
           - href: src/01/embeddings_using_spacy.ipynb
           - href: src/01/embeddings_using_openai.ipynb
+      - section: "Module 10: Final Project"
+        contents:
+          - href: src/10/rubric.qmd
