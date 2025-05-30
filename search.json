@@ -136,7 +136,7 @@
     "href": "src/01/intro_notebooks.html",
     "title": "Introduction to Jupyter Notebooks",
     "section": "",
-    "text": "Open In Colab\nWelcome to your first Jupyter notebook! This interactive document will teach you the fundamentals of working with notebooks.",
+    "text": "Welcome to your first Jupyter notebook! This interactive document will teach you the fundamentals of working with notebooks.",
     "crumbs": [
       "Module 1: Foundations of Generative AI",
       "Introduction to Jupyter Notebooks"
