@@ -1,9 +1,0 @@
-# Vector Embeddings
-
-## What are Vector Embeddings?
-
-Vector embeddings are numerical representations that map complex data—such as words, sentences, or images—into a continuous, high-dimensional vector space. This transformation enables machines to capture and process semantic relationships and contextual meanings inherent in the data. For instance, in natural language processing (NLP), word embeddings position semantically similar words closer together in the vector space, facilitating tasks like sentiment analysis, machine translation, and information retrieval.
-
-A foundational technique for generating word embeddings is Word2Vec, introduced by Tomas Mikolov and his team at Google in 2013. Word2Vec employs shallow neural networks to learn word associations from large text corpora, capturing semantic relationships by predicting a word based on its surrounding context (Continuous Bag of Words model) or predicting surrounding context words based on a target word (Skip-gram model). This approach results in embeddings where words with similar meanings are positioned closely in the vector space, enabling the model to perform tasks like detecting synonymous words or suggesting additional words for a partial sentence.
-
-Beyond text, vector embeddings are also applied to other data types, such as images and user profiles. In image processing, embeddings can represent visual items as vectors, capturing features that facilitate tasks like object recognition and image search. Similarly, user profile vectors encapsulate a user's preferences and behaviors, aiding in personalized recommendation systems and targeted advertising. By transforming diverse data into vector embeddings, machines can efficiently process and analyze complex information, uncovering patterns and relationships that might be challenging to detect through traditional methods.

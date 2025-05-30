@@ -33,7 +33,6 @@ website:
             - href: src/01/python_overview.ipynb
             - href: src/01/intro_notebooks.ipynb
           - section: "Vector Embeddings"
-            href: src/01/embeddings.qmd
             contents:
             - href: src/01/embeddings_using_spacy.ipynb
             - href: src/01/embeddings_using_openai.ipynb
