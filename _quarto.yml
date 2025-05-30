@@ -9,9 +9,11 @@ project:
     - "!Final Project.md"
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: flatly
+      dark: darkly
 website:
-  title: "Applied Generative AI"
+  title: "Applied Gen AI"
   page-navigation: true
   sidebar:
     style: "docked"
