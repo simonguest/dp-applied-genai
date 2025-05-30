@@ -427,6 +427,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div data-align="left">
+<p><a href="https://colab.research.google.com/github/simonguest/dp-applied-genai/blob/main/src/01/embeddings_using_spacy.ipynb" target="_blank"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
+</div>
+<section id="what-are-vector-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-vector-embeddings">What are Vector Embeddings?</h2>
+<p>Vector embeddings are numerical representations that map complex data—such as words, sentences, or images—into a continuous, high-dimensional vector space. This transformation enables machines to capture and process semantic relationships and contextual meanings inherent in the data. For instance, in natural language processing (NLP), word embeddings position semantically similar words closer together in the vector space, facilitating tasks like sentiment analysis, machine translation, and information retrieval.</p>
+<p>In this notebook, we’ll use a popular Python library called spaCy.</p>
+</section>
+<section id="spacy-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="spacy-dependencies">spaCy Dependencies</h2>
+<p>Run the following cell to download the English pipeline (medium) optimized for CPU. You can find more information here: https://spacy.io/models/en#en_core_web_md</p>
 <div id="0575de0c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python <span class="op">-</span>m spacy download en_core_web_md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -444,95 +455,78 @@ You can now load the package via spacy.load('en_core_web_md')
 </div>
 </div>
 </div>
-<div id="2a3dc56a" class="cell" data-execution_count="2">
+</section>
+<section id="generate-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="generate-embeddings">Generate Embeddings</h2>
+<p>Run the following code to generate the embeddings for a simple sentence. Try with other words/sentences/paragraphs. What do you notice?</p>
+<div id="2a3dc56a" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spacy</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the transformer-based model</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained model</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>nlp <span class="op">=</span> spacy.load(<span class="st">"en_core_web_md"</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Process the sentence</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>doc <span class="op">=</span> nlp(<span class="st">"Your sentence goes here."</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Process the word/sentence</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>doc <span class="op">=</span> nlp(<span class="st">"The cat sat on the mat."</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the transformer embeddings</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the embeddings</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(doc.vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[-6.97152019e-01  2.18697220e-01 -1.38046190e-01 -1.08199000e-01
- -4.19315815e-01 -8.13699961e-02  7.24241957e-02 -1.78819984e-01
-  1.13747403e-01  2.46984005e+00 -3.29926014e-01  2.82547921e-02
- -5.48959970e-02  2.99684051e-02 -5.58394015e-01 -1.04821967e-02
- -2.21652001e-01  5.17783225e-01 -3.50299999e-02  1.50423586e-01
-  5.30120265e-03 -2.72976011e-02  2.28738993e-01 -1.36507794e-01
- -1.03261396e-01  7.22399331e-04  5.02846055e-02 -1.99215204e-01
- -1.01365879e-01 -1.11575998e-01 -1.78038403e-01  6.79820497e-03
- -9.29618105e-02  6.07629940e-02  2.95340002e-01  1.20111801e-01
- -1.61686037e-02 -2.44086221e-01 -7.56460056e-03 -6.65706024e-02
-  1.92149192e-01  7.51752108e-02  2.53803611e-01 -1.88340992e-01
- -1.17564596e-01 -2.12039659e-03  1.01816002e-02  7.75826126e-02
- -1.24749206e-01 -5.66560030e-02 -2.08447978e-01  3.47281992e-01
-  1.16196303e-02  1.79484040e-02 -7.02484027e-02  1.15319644e-03
-  1.97426409e-01 -1.00111999e-01 -1.24508597e-01 -1.41780540e-01
- -1.78172797e-01 -2.11289600e-01  2.18443982e-02  1.27682000e-01
-  3.74133795e-01 -1.51595995e-01 -3.41325961e-02  9.77133662e-02
-  6.47788048e-02 -2.28141365e-03  7.83202052e-02 -1.13110803e-01
-  2.01876000e-01 -1.84775203e-01 -9.23043936e-02  7.53164068e-02
-  2.42122173e-01 -1.55999213e-01 -1.77634597e-01  3.52544010e-01
-  2.09900029e-02 -8.14503878e-02 -7.61779994e-02 -1.08398601e-01
-  8.06596887e-04 -1.17221996e-01  3.70903581e-01 -3.82573605e-01
-  1.13339402e-01  6.38799965e-02  4.87839989e-02  1.11724017e-02
- -2.10549995e-01 -2.32166201e-01  2.71339957e-02 -1.05895400e-01
- -8.21316019e-02 -1.36719197e-01  1.94922403e-01  9.00288969e-02
- -2.03906000e-02 -5.72646037e-02 -6.32830113e-02 -2.16079946e-03
-  3.47781420e-01 -7.51140714e-01 -1.32000595e-01  2.23525792e-01
- -1.34800062e-01 -7.01081976e-02 -1.20499209e-01 -1.10631801e-01
- -2.99679935e-02  3.31140049e-02 -1.90479994e-01  2.59587578e-02
- -2.32714295e-01 -1.54381797e-01 -2.14283153e-01 -5.05781583e-02
-  2.64545977e-02  9.80264023e-02 -5.95882013e-02  4.05658074e-02
- -1.22122012e-01  7.50298128e-02 -2.38914400e-01 -1.07187197e-01
- -9.12590027e-02 -5.44338040e-02 -6.37305081e-02  3.01516000e-02
-  3.57600003e-02 -4.81119938e-02  4.11874577e-02 -4.89199185e-04
- -2.48414010e-01  4.66838032e-02 -6.15505986e-02 -9.11279991e-02
- -1.55588603e+00  1.15547404e-01  4.71094608e-01  1.36772003e-02
- -1.76563784e-01 -2.62403011e-01  5.25702126e-02  6.38338029e-02
- -4.48758081e-02  1.32255983e-02  1.12116680e-01  1.08679593e-01
- -4.44696583e-02 -2.21425802e-01  5.18162027e-02 -1.50758803e-01
- -7.77864084e-02  3.21772024e-02  6.03040047e-02  3.27161960e-02
-  1.03638791e-01 -4.77199033e-02  9.17016044e-02  1.40584603e-01
- -3.27609211e-01 -1.54220983e-01  1.24089994e-01  1.38952613e-01
-  1.31873950e-01 -5.28779998e-02 -6.58353567e-02 -3.56023610e-01
-  2.31844187e-01 -1.06215857e-01  1.86655998e-01  1.56995997e-01
-  1.85908005e-01  3.24924022e-01 -1.65576078e-02  8.16599950e-02
-  3.61593887e-02 -5.66977970e-02 -1.68583602e-01  9.05743167e-02
- -5.88941984e-02  1.67362005e-01 -1.70045406e-01  8.02140012e-02
- -1.94981899e-02 -2.77832001e-02 -7.93479979e-02  3.17424014e-02
- -8.90523940e-02  1.91893607e-01  3.88000086e-02 -6.27299994e-02
- -8.36481005e-02  4.23263945e-02  7.74891973e-02  1.37193128e-01
-  1.37862414e-01 -2.43982226e-01 -1.78334787e-01  5.08332029e-02
- -2.05801398e-01 -1.59099787e-01  1.63361400e-01  7.87623972e-02
-  3.28240059e-02  2.60260791e-01 -8.97658020e-02  1.05211198e-01
- -6.95054084e-02 -1.95324600e-01  2.68915296e-02  2.13230066e-02
- -1.77296400e-01  1.42974123e-01 -3.70002925e-01 -1.35940164e-02
- -2.12079599e-01 -3.92153971e-02 -2.34284997e-01 -1.40606612e-01
- -5.72265983e-02 -1.73677206e-01 -1.66331977e-01 -1.49255823e-02
-  1.24044396e-01  4.69671972e-02 -3.06127965e-02 -2.26371996e-02
-  2.73019969e-02  1.12521604e-01  2.97795925e-02 -4.96900044e-02
-  2.15790793e-01  5.44206016e-02 -9.82873961e-02  1.00847997e-01
-  7.88234025e-02 -1.43564194e-01  6.02781996e-02  1.86304390e-01
-  3.09691608e-01 -1.14585742e-01 -9.80440006e-02 -3.35257381e-01
- -1.91382408e-01  2.87827969e-01  2.40156054e-02 -1.48231804e-01
-  2.55874395e-01 -1.26682013e-01  7.58140162e-03  2.74650395e-01
- -2.31867835e-01 -2.55484015e-01  1.58447400e-01 -1.42529011e-02
- -6.70429990e-02  5.13227992e-02 -2.59310007e-02  2.80774593e-01
-  2.31586009e-01  4.92020026e-02 -1.29136801e-01  4.56259996e-02
-  5.28154552e-01  3.36851999e-02  2.51724068e-02 -3.68707597e-01
- -6.16259985e-02 -2.11868003e-01 -1.18208960e-01  7.41239935e-02
-  8.66817906e-02 -6.85140043e-02  2.21496016e-01  2.98002005e-01
- -1.22550009e-02 -1.21386006e-01 -6.46999863e-04 -1.92434005e-02
- -6.23565838e-02  5.79879992e-02  8.24557990e-02 -1.99402198e-01
- -7.05839843e-02 -1.12907194e-01 -2.45563790e-01 -1.03904210e-01
- -1.83011800e-01 -2.00293809e-01  8.10237974e-02  8.90928060e-02
- -7.75564015e-02 -2.64433593e-01  1.04819983e-02  6.57932460e-02]</code></pre>
+<pre><code>[-0.72483    0.42538    0.025489  -0.39807    0.037463  -0.29811
+ -0.28279    0.29333    0.57775    1.2205    -0.27903    0.80879
+ -0.71291    0.045808  -0.46751    0.55944    0.42745    0.58238
+  0.20854   -0.42718   -0.40284   -0.048941   0.1149    -0.6963
+ -0.03338    0.052596  -0.22572   -0.35996    0.47961   -0.38386
+ -0.73837    0.1718     0.52188    0.45584   -0.026621   0.48831
+  0.67996   -0.73345   -0.27078    0.41739    0.1947     0.27389
+ -0.70931   -0.45317   -0.22574   -0.12617    0.03268    0.142
+  0.53923   -0.61285   -0.5322     0.19479    0.13889   -0.020284
+  0.088162   0.85337    0.039407   0.11529   -0.42646    0.74832
+  0.34421   -0.59462    0.0040537  0.027203  -0.063394   0.26538
+  0.34757    0.21395   -0.39799   -0.027067  -0.36132    0.31979
+  0.55813   -0.5652     0.55382    0.03928   -0.26933   -0.14705
+  0.74032   -0.50566    0.023765   0.62273   -0.79388   -0.25165
+  0.11992   -0.43056    1.0614     0.58571    0.8856    -0.056054
+  0.055826   0.30485    0.64639   -0.43831   -0.45706    0.036471
+ -0.3466    -0.56219    0.28105   -0.33758   -0.041398   0.22171
+  0.05262    0.18113    0.65646   -0.56217    0.038915  -0.30335
+  0.05051   -0.2354     0.3233     0.31744    0.52453   -0.47154
+  0.13152   -0.15104    0.14265   -0.20747    0.060413  -0.030342
+ -0.092883   0.80421   -0.12497   -0.56199    0.29128   -0.22488
+  0.30282   -0.0045144 -0.12305    0.20396   -0.32202   -0.11409
+ -0.37613    0.40457    0.21461    0.25741   -0.36489    0.94135
+  0.42725    0.022925  -1.8699    -0.76035    0.73771    0.36998
+  0.50214   -0.30617   -0.26526    0.86573    0.3808     0.14754
+  0.29932   -0.078863  -0.28992   -0.064636  -0.68914    0.19527
+ -0.56368    0.26251   -0.52171   -1.0703     0.42478   -0.0067289
+ -0.28591   -0.77831    0.049342   0.66675   -0.077419  -0.19226
+  0.12721   -0.18844    0.13647    0.38804    0.21917   -0.24192
+ -0.13465    0.23119   -0.43197    0.48302    0.3598     1.128
+  0.019894  -0.10861   -0.13515   -0.34137   -0.36379    0.080616
+  0.28682   -0.045819  -0.12114   -0.44835   -0.054611  -0.10362
+  0.010954  -0.60063   -0.46665    0.15115   -0.31815   -0.58903
+  1.1325     0.04406   -0.92863    0.3399    -0.03463   -0.40474
+  0.17245   -0.19983   -0.095982  -0.074758   0.57472    0.25455
+ -0.20387    0.055758  -0.65017    0.72629   -0.51083    0.11196
+  0.44724    0.16157   -0.34571    0.19227   -0.063871   0.0057351
+  0.48703   -0.53762   -0.73398   -0.11488    0.073723   0.58191
+  0.33192   -0.13303   -0.3478    -0.022676  -0.32494   -0.26496
+  0.56275    0.098558  -0.16671   -0.40481    0.55477   -0.58692
+ -0.60433   -0.4227    -0.53712    0.2994     0.11339   -0.3154
+ -0.28685    0.43999    0.013623   0.011139  -0.47734   -0.01492
+  0.52524    0.53583    0.36626    0.23119   -0.1386     0.35374
+ -0.27448    0.066183   0.6224    -0.24851   -0.36066    0.009084
+ -0.58148    0.24371    0.29944   -0.025314  -0.73222    0.33236
+ -0.40339    0.82624    0.006984   0.26737   -0.27695   -0.09713
+ -0.015736   0.1024    -0.026831  -0.26293    0.31401    0.01051
+ -0.048451  -0.74571    0.75827    0.67771    0.054738  -0.23325
+  0.17996   -0.206      0.019095  -0.34283   -0.58602    0.0095634
+ -0.085052   0.83312    0.31978    0.050317  -0.23159    0.28165  ]</code></pre>
 </div>
 </div>
+</section>
+<section id="investigate-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="investigate-similarity">Investigate Similarity</h2>
+<p>We can use spaCy’s <code>similarity</code> function to generate a similarity score between two sentences.</p>
 <div id="603c0f9f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spacy</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -551,8 +545,13 @@ You can now load the package via spacy.load('en_core_web_md')
 <pre><code>Similarity score: 0.7523308992385864</code></pre>
 </div>
 </div>
+</section>
+<section id="syntactic-or-semantic-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="syntactic-or-semantic-similarity">Syntactic or Semantic Similarity?</h2>
+<p>What do you notice about the similarity scores? Are they syntactic or semantic? Re-run the previous cell with different sentences to find out.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
