@@ -2,38 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/src/01/python_overview.html</loc>
-    <lastmod>2025-05-30T20:51:16.435Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.162Z</lastmod>
   </url>
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/src/01/intro_notebooks.html</loc>
-    <lastmod>2025-05-30T20:51:16.434Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.162Z</lastmod>
   </url>
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/src/01/embeddings_using_openai.html</loc>
-    <lastmod>2025-05-30T20:51:16.434Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.162Z</lastmod>
   </url>
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/src/01/recap.html</loc>
-    <lastmod>2025-05-30T20:51:16.435Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.163Z</lastmod>
   </url>
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/index.html</loc>
-    <lastmod>2025-05-30T20:51:16.434Z</lastmod>
-  </url>
-  <url>
-    <loc>https://simonguest.github.io/dp-applied-genai/src/01/embeddings.html</loc>
-    <lastmod>2025-05-30T20:51:16.434Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.162Z</lastmod>
   </url>
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/src/10/rubric.html</loc>
-    <lastmod>2025-05-30T20:51:16.435Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.163Z</lastmod>
   </url>
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/src/01/embeddings_using_spacy.html</loc>
-    <lastmod>2025-05-30T20:51:16.434Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.162Z</lastmod>
   </url>
   <url>
     <loc>https://simonguest.github.io/dp-applied-genai/src/01/nanogpt.html</loc>
-    <lastmod>2025-05-30T20:51:16.434Z</lastmod>
+    <lastmod>2025-05-30T21:03:02.162Z</lastmod>
   </url>
 </urlset>

@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../src/01/embeddings_using_openai.html" rel="next">
-<link href="../../src/01/embeddings.html" rel="prev">
+<link href="../../src/01/intro_notebooks.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -283,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/recap.html">Module 1: Foundations of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings.html">Vector Embeddings</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings_using_spacy.html">Exploring Embeddings using spaCy</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/recap.html">Module 1: Foundations of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings_using_spacy.html">Vector Embeddings</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings_using_spacy.html">Exploring Embeddings using spaCy</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -358,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../src/01/embeddings.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Vector Embeddings</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -408,7 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/recap.html">Module 1: Foundations of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings.html">Vector Embeddings</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings_using_spacy.html">Exploring Embeddings using spaCy</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/01/recap.html">Module 1: Foundations of Generative AI</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings_using_spacy.html">Vector Embeddings</a></li><li class="breadcrumb-item"><a href="../../src/01/embeddings_using_spacy.html">Exploring Embeddings using spaCy</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Exploring Embeddings using spaCy</h1>
 </div>
@@ -433,33 +433,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-are-vector-embeddings" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-vector-embeddings">What are Vector Embeddings?</h2>
 <p>Vector embeddings are numerical representations that map complex data—such as words, sentences, or images—into a continuous, high-dimensional vector space. This transformation enables machines to capture and process semantic relationships and contextual meanings inherent in the data. For instance, in natural language processing (NLP), word embeddings position semantically similar words closer together in the vector space, facilitating tasks like sentiment analysis, machine translation, and information retrieval.</p>
-<p>In this notebook, we’ll use a popular Python library called spaCy.</p>
+<p>In this notebook, we’ll use <strong>spaCy</strong>, a popular Python library for NLP that includes pre-trained word embeddings. spaCy’s embeddings are based on word2vec and are trained on large text corpora to capture semantic relationships between words.</p>
 </section>
 <section id="spacy-dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="spacy-dependencies">spaCy Dependencies</h2>
-<p>Run the following cell to download the English pipeline (medium) optimized for CPU. You can find more information here: https://spacy.io/models/en#en_core_web_md</p>
-<div id="0575de0c" class="cell" data-execution_count="1">
+<p>Run the following cell to download the English pipeline (medium) optimized for CPU. This model includes: - <strong>Word vectors</strong>: 300-dimensional embeddings for ~685k words - <strong>Part-of-speech tagging</strong>: Grammatical information - <strong>Named entity recognition</strong>: Identifying people, places, organizations, etc. - <strong>Dependency parsing</strong>: Understanding sentence structure</p>
+<p>You can find more information here: https://spacy.io/models/en#en_core_web_md</p>
+<div id="cell-4" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python <span class="op">-</span>m spacy download en_core_web_md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<div class="ansi-escaped-output">
-<pre>Collecting en-core-web-md==3.8.0
-
-  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl (33.5 MB)
-
-     <span style="color:rgb(114,156,31)">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">33.5/33.5 MB</span> <span class="ansi-red-fg">119.2 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span> MB/s eta <span class="ansi-cyan-fg">0:00:01</span>
-
-<span class="ansi-green-fg">✔ Download and installation successful</span>
-
-You can now load the package via spacy.load('en_core_web_md')
-</pre>
-</div>
-</div>
 </div>
 </section>
 <section id="generate-embeddings" class="level2">
 <h2 class="anchored" data-anchor-id="generate-embeddings">Generate Embeddings</h2>
-<p>Run the following code to generate the embeddings for a simple sentence. Try with other words/sentences/paragraphs. What do you notice?</p>
-<div id="2a3dc56a" class="cell">
+<p>Let’s start by generating embeddings for a simple sentence. spaCy automatically creates document-level embeddings by averaging the word vectors in the text.</p>
+<p><strong>Try this</strong>: Run the code below, then try with other words, sentences, or paragraphs. What do you notice about the embedding dimensions and values?</p>
+<div id="cell-6" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spacy</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained model</span></span>
@@ -468,66 +456,37 @@ You can now load the package via spacy.load('en_core_web_md')
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Process the word/sentence</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>doc <span class="op">=</span> nlp(<span class="st">"The cat sat on the mat."</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the embeddings</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(doc.vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[-0.72483    0.42538    0.025489  -0.39807    0.037463  -0.29811
- -0.28279    0.29333    0.57775    1.2205    -0.27903    0.80879
- -0.71291    0.045808  -0.46751    0.55944    0.42745    0.58238
-  0.20854   -0.42718   -0.40284   -0.048941   0.1149    -0.6963
- -0.03338    0.052596  -0.22572   -0.35996    0.47961   -0.38386
- -0.73837    0.1718     0.52188    0.45584   -0.026621   0.48831
-  0.67996   -0.73345   -0.27078    0.41739    0.1947     0.27389
- -0.70931   -0.45317   -0.22574   -0.12617    0.03268    0.142
-  0.53923   -0.61285   -0.5322     0.19479    0.13889   -0.020284
-  0.088162   0.85337    0.039407   0.11529   -0.42646    0.74832
-  0.34421   -0.59462    0.0040537  0.027203  -0.063394   0.26538
-  0.34757    0.21395   -0.39799   -0.027067  -0.36132    0.31979
-  0.55813   -0.5652     0.55382    0.03928   -0.26933   -0.14705
-  0.74032   -0.50566    0.023765   0.62273   -0.79388   -0.25165
-  0.11992   -0.43056    1.0614     0.58571    0.8856    -0.056054
-  0.055826   0.30485    0.64639   -0.43831   -0.45706    0.036471
- -0.3466    -0.56219    0.28105   -0.33758   -0.041398   0.22171
-  0.05262    0.18113    0.65646   -0.56217    0.038915  -0.30335
-  0.05051   -0.2354     0.3233     0.31744    0.52453   -0.47154
-  0.13152   -0.15104    0.14265   -0.20747    0.060413  -0.030342
- -0.092883   0.80421   -0.12497   -0.56199    0.29128   -0.22488
-  0.30282   -0.0045144 -0.12305    0.20396   -0.32202   -0.11409
- -0.37613    0.40457    0.21461    0.25741   -0.36489    0.94135
-  0.42725    0.022925  -1.8699    -0.76035    0.73771    0.36998
-  0.50214   -0.30617   -0.26526    0.86573    0.3808     0.14754
-  0.29932   -0.078863  -0.28992   -0.064636  -0.68914    0.19527
- -0.56368    0.26251   -0.52171   -1.0703     0.42478   -0.0067289
- -0.28591   -0.77831    0.049342   0.66675   -0.077419  -0.19226
-  0.12721   -0.18844    0.13647    0.38804    0.21917   -0.24192
- -0.13465    0.23119   -0.43197    0.48302    0.3598     1.128
-  0.019894  -0.10861   -0.13515   -0.34137   -0.36379    0.080616
-  0.28682   -0.045819  -0.12114   -0.44835   -0.054611  -0.10362
-  0.010954  -0.60063   -0.46665    0.15115   -0.31815   -0.58903
-  1.1325     0.04406   -0.92863    0.3399    -0.03463   -0.40474
-  0.17245   -0.19983   -0.095982  -0.074758   0.57472    0.25455
- -0.20387    0.055758  -0.65017    0.72629   -0.51083    0.11196
-  0.44724    0.16157   -0.34571    0.19227   -0.063871   0.0057351
-  0.48703   -0.53762   -0.73398   -0.11488    0.073723   0.58191
-  0.33192   -0.13303   -0.3478    -0.022676  -0.32494   -0.26496
-  0.56275    0.098558  -0.16671   -0.40481    0.55477   -0.58692
- -0.60433   -0.4227    -0.53712    0.2994     0.11339   -0.3154
- -0.28685    0.43999    0.013623   0.011139  -0.47734   -0.01492
-  0.52524    0.53583    0.36626    0.23119   -0.1386     0.35374
- -0.27448    0.066183   0.6224    -0.24851   -0.36066    0.009084
- -0.58148    0.24371    0.29944   -0.025314  -0.73222    0.33236
- -0.40339    0.82624    0.006984   0.26737   -0.27695   -0.09713
- -0.015736   0.1024    -0.026831  -0.26293    0.31401    0.01051
- -0.048451  -0.74571    0.75827    0.67771    0.054738  -0.23325
-  0.17996   -0.206      0.019095  -0.34283   -0.58602    0.0095634
- -0.085052   0.83312    0.31978    0.050317  -0.23159    0.28165  ]</code></pre>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display information about the embeddings</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Text: '</span><span class="sc">{</span>doc<span class="sc">.</span>text<span class="sc">}</span><span class="ss">'"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Embedding dimensions: </span><span class="sc">{</span><span class="bu">len</span>(doc.vector)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First 10 values: </span><span class="sc">{</span>doc<span class="sc">.</span>vector[:<span class="dv">10</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Full embedding: </span><span class="sc">{</span>doc<span class="sc">.</span>vector<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="understanding-word-vs-document-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-word-vs-document-embeddings">Understanding Word vs Document Embeddings</h2>
+<p>spaCy provides embeddings at different levels: - <strong>Token (word) level</strong>: Each individual word has its own embedding - <strong>Document level</strong>: The entire text gets a single embedding (average of word embeddings)</p>
+<p>Let’s explore both:</p>
+<div id="cell-8" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Process a sentence</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>doc <span class="op">=</span> nlp(<span class="st">"The cat sat on the mat."</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Word-level embeddings:"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> token <span class="kw">in</span> doc:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> token.has_vector:  <span class="co"># Check if the word has an embedding</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"'</span><span class="sc">{</span>token<span class="sc">.</span>text<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span><span class="bu">len</span>(token.vector)<span class="sc">}</span><span class="ss"> dimensions, first 5 values: </span><span class="sc">{</span>token<span class="sc">.</span>vector[:<span class="dv">5</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"'</span><span class="sc">{</span>token<span class="sc">.</span>text<span class="sc">}</span><span class="ss">': No embedding available"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Document-level embedding: </span><span class="sc">{</span><span class="bu">len</span>(doc.vector)<span class="sc">}</span><span class="ss"> dimensions"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Document vector (first 10): </span><span class="sc">{</span>doc<span class="sc">.</span>vector[:<span class="dv">10</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="investigate-similarity" class="level2">
 <h2 class="anchored" data-anchor-id="investigate-similarity">Investigate Similarity</h2>
-<p>We can use spaCy’s <code>similarity</code> function to generate a similarity score between two sentences.</p>
-<div id="603c0f9f" class="cell" data-execution_count="4">
+<p>We can use spaCy’s built-in <code>similarity</code> function to generate a similarity score between two pieces of text. This function calculates the cosine similarity between the embeddings.</p>
+<p><strong>Similarity scores range from 0 to 1:</strong> - 1 = identical meaning - 0 = no relationship</p>
+<div id="cell-10" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spacy</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained model</span></span>
@@ -540,15 +499,107 @@ You can now load the package via spacy.load('en_core_web_md')
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute similarity</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>similarity_score <span class="op">=</span> doc1.similarity(doc2)</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Similarity score: </span><span class="sc">{</span>similarity_score<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Similarity score: 0.7523308992385864</code></pre>
-</div>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Text 1: '</span><span class="sc">{</span>doc1<span class="sc">.</span>text<span class="sc">}</span><span class="ss">'"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Text 2: '</span><span class="sc">{</span>doc2<span class="sc">.</span>text<span class="sc">}</span><span class="ss">'"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Similarity score: </span><span class="sc">{</span>similarity_score<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="syntactic-or-semantic-similarity" class="level2">
-<h2 class="anchored" data-anchor-id="syntactic-or-semantic-similarity">Syntactic or Semantic Similarity?</h2>
-<p>What do you notice about the similarity scores? Are they syntactic or semantic? Re-run the previous cell with different sentences to find out.</p>
+<section id="syntactic-vs-semantic-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="syntactic-vs-semantic-similarity">Syntactic vs Semantic Similarity</h2>
+<p>What do you notice about the similarity scores? Are they capturing syntactic (word structure) or semantic (meaning) similarity?</p>
+<p><strong>Experiment</strong>: Re-run the previous cell with different sentence pairs to find out. Try these examples:</p>
+<ol type="1">
+<li><strong>Same words, different order</strong>:
+<ul>
+<li>“The dog chased the cat” vs “The cat chased the dog”</li>
+</ul></li>
+<li><strong>Synonyms</strong>:
+<ul>
+<li>“The car is fast” vs “The automobile is quick”</li>
+</ul></li>
+<li><strong>Different topics</strong>:
+<ul>
+<li>“I love programming” vs “The weather is nice”</li>
+</ul></li>
+</ol>
+<p><strong>Questions to consider</strong>: - Do sentences with similar meanings but different words get high similarity scores? - Do sentences with the same words but different meanings get high scores? - What does this tell you about what the embeddings are capturing?</p>
+</section>
+<section id="comparing-multiple-texts" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-multiple-texts">Comparing Multiple Texts</h2>
+<p>Let’s create a more comprehensive comparison by looking at multiple texts and their pairwise similarities:</p>
+<div id="cell-13" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define multiple texts to compare</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> [</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The cat sat on the mat."</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A feline rested on a rug."</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dogs are loyal pets."</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The weather is sunny today."</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Programming is fun and challenging."</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Process all texts</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>docs <span class="op">=</span> [nlp(text) <span class="cf">for</span> text <span class="kw">in</span> texts]</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create similarity matrix</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Pairwise Similarity Scores:"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, doc1 <span class="kw">in</span> <span class="bu">enumerate</span>(docs):</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j, doc2 <span class="kw">in</span> <span class="bu">enumerate</span>(docs):</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&lt;</span> j:  <span class="co"># Only show upper triangle to avoid duplicates</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>            similarity <span class="op">=</span> doc1.similarity(doc2)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Text </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> vs Text </span><span class="sc">{</span>j<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>similarity<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  '</span><span class="sc">{</span>doc1<span class="sc">.</span>text<span class="sc">}</span><span class="ss">' vs '</span><span class="sc">{</span>doc2<span class="sc">.</span>text<span class="sc">}</span><span class="ss">'"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>()</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Text Reference:"</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, text <span class="kw">in</span> <span class="bu">enumerate</span>(texts):</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Text </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>text<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="word-level-similarity-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="word-level-similarity-analysis">Word-Level Similarity Analysis</h2>
+<p>Let’s also explore similarity at the word level to understand how individual words relate to each other:</p>
+<div id="cell-15" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare individual words</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> [<span class="st">"cat"</span>, <span class="st">"feline"</span>, <span class="st">"dog"</span>, <span class="st">"canine"</span>, <span class="st">"car"</span>, <span class="st">"automobile"</span>, <span class="st">"happy"</span>, <span class="st">"joyful"</span>, <span class="st">"sad"</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Process words</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>word_docs <span class="op">=</span> [nlp(word) <span class="cf">for</span> word <span class="kw">in</span> words]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Word Similarity Examples:"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">30</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare some interesting word pairs</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> [</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"cat"</span>, <span class="st">"feline"</span>),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"dog"</span>, <span class="st">"canine"</span>), </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"car"</span>, <span class="st">"automobile"</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"happy"</span>, <span class="st">"joyful"</span>),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"happy"</span>, <span class="st">"sad"</span>),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"cat"</span>, <span class="st">"dog"</span>),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"cat"</span>, <span class="st">"car"</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word1, word2 <span class="kw">in</span> pairs:</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    doc1 <span class="op">=</span> nlp(word1)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    doc2 <span class="op">=</span> nlp(word2)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    similarity <span class="op">=</span> doc1.similarity(doc2)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"'</span><span class="sc">{</span>word1<span class="sc">}</span><span class="ss">' vs '</span><span class="sc">{</span>word2<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>similarity<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<p>From this exploration with spaCy embeddings, you should understand:</p>
+<ol type="1">
+<li><strong>spaCy provides 300-dimensional word embeddings</strong> trained on large text corpora</li>
+<li><strong>Document embeddings are averages</strong> of the individual word embeddings</li>
+<li><strong>Similarity scores capture semantic relationships</strong> between words and texts</li>
+<li><strong>Embeddings work at multiple levels</strong> - individual words, sentences, and documents</li>
+<li><strong>Pre-trained models</strong> like spaCy’s make it easy to get started with embeddings</li>
+</ol>
+<p><strong>Comparison with other approaches</strong>: - spaCy embeddings are based on older techniques (word2vec) but are fast and work well for many tasks - Modern transformer-based models (like OpenAI’s embeddings) often provide better semantic understanding - The choice depends on your specific use case, computational resources, and accuracy requirements</p>
+<p><strong>Next steps</strong>: Try experimenting with different types of text (technical documents, creative writing, news articles) to see how well the embeddings capture domain-specific relationships!</p>
 
 
 </section>
@@ -968,8 +1019,8 @@ You can now load the package via spacy.load('en_core_web_md')
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../src/01/embeddings.html" class="pagination-link" aria-label="Vector Embeddings">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vector Embeddings</span>
+      <a href="../../src/01/intro_notebooks.html" class="pagination-link" aria-label="Introduction to Jupyter Notebooks">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to Jupyter Notebooks</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
