@@ -14,12 +14,13 @@ website:
     contents:
       - text: "Course Overview"
         href: index.qmd
-      - section: "Module 1: A Brief History of Generative AI"
+      - section: "Module 1: Foundations of Generative AI"
         href: src/01/overview.qmd
         contents:
           - text: "Slides"
             href: src/01/recap.qmd
             target: blank
+          - href: src/01/intro_notebooks.ipynb
           - href: src/01/embeddings.qmd
           - href: src/01/embeddings_using_spacy.ipynb
           - href: src/01/embeddings_using_openai.ipynb

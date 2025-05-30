@@ -5,11 +5,13 @@
 		- Course and Hands on Labs format/expecations
 	- Tools/accounts pre-requisites
 	- How to reach out for help!
-- **Module 1: A Brief History of Generative AI**
+- **Module 1: Foundations of Generative AI**
 	- A recap of ML / neural network architectures
 		- Unsupervised, supervised, and reinforcement learning
 		- CNNs, RNNs, LSTM
 		- Early generative models: GANs and VAEs
+	- Vectors
+	  - Vector Embeddings
 	- "Attention is all you need"
 		- Why was the 2017 paper so important?
 		- The Transformer Architecture
