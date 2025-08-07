@@ -1,0 +1,42 @@
+---
+title: "Introducing AI Agents"
+format: revealjs
+---
+
+## Recap of Last Lecture
+
+We used the OpenAI SDK to build our first AI-powered chatbot!
+
+::: {.fragment}
+- Screenshot of the chatbot interface
+:::
+
+---
+
+## What Did We Learn?
+
+::: {.incremental}
+- How to use OpenAI API and SDK
+- Context windows and conversation structure
+- Available models, features, and costs
+:::
+
+---
+
+## But We Discovered Limitations
+
+Our simple chatbot had several constraints...
+
+::: {.incremental}
+- **Not Proactive**: No ability to plan beyond a single interaction
+- **No Autonomy**: Needs constant human input every turn
+- **Not Reactive**: Cannot respond to different conditions
+- **No Memory**: Everything has to be replayed in the context window
+- **No Interactivity**: Cannot reach out to other LLMs and external systems
+:::
+
+---
+
+## The Need for AI Agents
+
+These limitations point to a fundamental gap in our current approach...

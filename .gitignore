@@ -7,3 +7,9 @@
 # Quarto build folder
 dist
 /.quarto/
+
+# Node modules folders for demos
+node_modules
+
+# Env files
+.env
