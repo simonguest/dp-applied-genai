@@ -152,6 +152,9 @@
 		- Installing LM studio and downloading models
 		- Using Llama.cpp with CPU only; extending to GPU
 - **Module 7: Using Models within Game Engines**
+  - Existing AI integration
+		- Unity Muse - collection of AI tools for the Unity Editor
+		- Unity Sentis - ability to run ONNX models within Unity
 	- Designing interactions with LLMs
 		- NPC dialogue, quest generation, player assistance
 		- Ensuring meaningful interactions that enhance your game
