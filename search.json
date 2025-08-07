@@ -438,6 +438,34 @@
     ]
   },
   {
+    "objectID": "src/00/teaching_lecture.html#recap-of-last-lecture",
+    "href": "src/00/teaching_lecture.html#recap-of-last-lecture",
+    "title": "Introducing AI Agents",
+    "section": "Recap of Last Lecture",
+    "text": "Recap of Last Lecture\nWe used the OpenAI SDK to build our first AI-powered chatbot!\n\n\nScreenshot of the chatbot interface"
+  },
+  {
+    "objectID": "src/00/teaching_lecture.html#what-did-we-learn",
+    "href": "src/00/teaching_lecture.html#what-did-we-learn",
+    "title": "Introducing AI Agents",
+    "section": "What Did We Learn?",
+    "text": "What Did We Learn?\n\nHow to use OpenAI API and SDK\nContext windows and conversation structure\nAvailable models, features, and costs"
+  },
+  {
+    "objectID": "src/00/teaching_lecture.html#but-we-discovered-limitations",
+    "href": "src/00/teaching_lecture.html#but-we-discovered-limitations",
+    "title": "Introducing AI Agents",
+    "section": "But We Discovered Limitations",
+    "text": "But We Discovered Limitations\nOur simple chatbot had several constraints…\n\nNot Proactive: No ability to plan beyond a single interaction\nNo Autonomy: Needs constant human input every turn\nNot Reactive: Cannot respond to different conditions\nNo Memory: Everything has to be replayed in the context window\nNo Interactivity: Cannot reach out to other LLMs and external systems"
+  },
+  {
+    "objectID": "src/00/teaching_lecture.html#the-need-for-ai-agents",
+    "href": "src/00/teaching_lecture.html#the-need-for-ai-agents",
+    "title": "Introducing AI Agents",
+    "section": "The Need for AI Agents",
+    "text": "The Need for AI Agents\nThese limitations point to a fundamental gap in our current approach…"
+  },
+  {
     "objectID": "src/10/rubric.html",
     "href": "src/10/rubric.html",
     "title": "Final Project: AI-Enhanced Game Environment",
