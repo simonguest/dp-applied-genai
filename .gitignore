@@ -16,3 +16,6 @@ node_modules
 
 # Pycache
 __pycache__
+
+# Gradio
+.gradio
