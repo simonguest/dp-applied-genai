@@ -5,6 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "gradio>=5.41.1",
+    "openai-agents>=0.2.5",
     "quarto-cli>=1.7.31",
 ]
 
