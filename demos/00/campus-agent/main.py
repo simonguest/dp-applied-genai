@@ -1,37 +1,52 @@
-from typing_extensions import TypedDict
-
 import gradio as gr
 from gradio import ChatMessage
-
 from agents import Agent, Runner, function_tool, FileSearchTool
 
 VECTOR_STORE_ID = "vs_6896d8c959008191981d645850b42313"
 
 
-class Location(TypedDict):
-    lat: float
-    long: float
-
-
 @function_tool
-async def fetch_weather(location: Location) -> str:
-    return "sunny"
+def get_bytes_cafe_menu(date: str) -> any:
+    return {
+        f"{date}": {
+            "daily byte": {
+                "name": "Steak Quesadilla",
+                "price": 12,
+                "description": "Flank steak, mixed cheese in a flour tortilla served with air fried potatoes, sour cream and salsa",
+            },
+            "vegetarian": {
+                "name": "Impossible Quesadilla",
+                "price": 12,
+                "description": "Impossible plant based product, mixed cheese in a flour tortilla served with air fried potatoes, sour cream and salsa",
+            },
+            "international": {
+                "name": "Chicken Curry",
+                "price": 12,
+                "description": "Chicken thighs, onion, carrot, potato, curry sauce served over rice",
+            },
+        }
+    }
 
 
-@function_tool
-def add_two_numbers(x: int, y: int) -> int:
-    return x + y
+cafe_agent = Agent(
+    name="Cafe Agent",
+    instructions="You help students locate and provide information about the Bytes Cafe.",
+    tools=[
+        get_bytes_cafe_menu,
+    ],
+)
 
 
 building_agent = Agent(
     name="Building Agent",
-    instructions="You help students locate and provide information about rooms and buildings on campus. Be descriptive when giving locations.",
+    instructions="You help students locate and provide information about buildings and rooms on campus. Be descriptive when giving locations.",
     tools=[
         FileSearchTool(
             max_num_results=3,
             vector_store_ids=[VECTOR_STORE_ID],
             include_search_results=True,
-        )
+        ),
+        get_bytes_cafe_menu,
     ],
 )
 
@@ -62,8 +77,7 @@ handbook_agent = Agent(
 agent = Agent(
     name="DigiPen Campus Assistant",
     instructions="You are a helpful campus assistant that can plan and execute tasks for students at DigiPen. Please be concise and accurate in handing off tasks to other agents as needed.",
-    handoffs=[building_agent, course_agent, handbook_agent],
-    tools=[],
+    handoffs=[building_agent, course_agent, handbook_agent, cafe_agent],
 )
 
 
@@ -80,6 +94,15 @@ async def chat_with_agent(user_msg: str, history: list):
             # We will support streaming later on
             continue
         else:
+            if event.type == "agent_updated_stream_event":
+                print(event)
+                context["current_messages"].append(
+                    ChatMessage(
+                        role="assistant",
+                        content=f"{event.new_agent.name}",
+                        metadata={"title": "Agent Now Running"},
+                    )
+                )
             if event.type == "run_item_stream_event":
                 print(event.item)
                 if event.item.type == "tool_call_item":
@@ -136,6 +159,7 @@ demo = gr.ChatInterface(
         "I'm trying to find the WANIC classrooms. Can you help?",
         "What's the policy for eating in auditoriums?",
         "Where do I pickup my parking pass?",
+        "What's today's vegetarian dish at the Bytes Cafe?",
         "Tell me more about CS 205...",
         "What are the prerequisites for FLM201?",
         "Which courses should I consider if I'm interested in audio mixing techniques?",
