@@ -45,8 +45,7 @@ building_agent = Agent(
             max_num_results=3,
             vector_store_ids=[VECTOR_STORE_ID],
             include_search_results=True,
-        ),
-        get_bytes_cafe_menu,
+        )
     ],
 )
 
