@@ -5,6 +5,8 @@ from gradio import ChatMessage
 
 from agents import Agent, Runner, function_tool, FileSearchTool
 
+VECTOR_STORE_ID = "vs_6896d8c959008191981d645850b42313"
+
 
 class Location(TypedDict):
     lat: float
@@ -23,21 +25,45 @@ def add_two_numbers(x: int, y: int) -> int:
 
 building_agent = Agent(
     name="Building Agent",
-    instructions="You are a helpful building assistant. You can help students locate rooms on campus.",
+    instructions="You help students locate and provide information about rooms and buildings on campus. Be descriptive when giving locations.",
     tools=[
         FileSearchTool(
             max_num_results=3,
-            vector_store_ids=["vs_6896d8c959008191981d645850b42313"],
+            vector_store_ids=[VECTOR_STORE_ID],
+            include_search_results=True,
+        )
+    ],
+)
+
+course_agent = Agent(
+    name="Course Agent",
+    instructions="You help students find out information about courses held at DigiPen.",
+    tools=[
+        FileSearchTool(
+            max_num_results=5,
+            vector_store_ids=[VECTOR_STORE_ID],
+            include_search_results=True,
+        )
+    ],
+)
+
+handbook_agent = Agent(
+    name="Handbook Agent",
+    instructions="You help students navigate the school handbook, providing information about campus policies and student conduct.",
+    tools=[
+        FileSearchTool(
+            max_num_results=5,
+            vector_store_ids=[VECTOR_STORE_ID],
             include_search_results=True,
         )
     ],
 )
 
 agent = Agent(
-    name="Campus Assistant",
-    instructions="You are a helpful campus assistant that can plan and execute tasks for students. Please be concise and accurate in handing off tasks to other agents as needed.",
-    handoffs=[building_agent],
-    tools=[fetch_weather, add_two_numbers],
+    name="DigiPen Campus Assistant",
+    instructions="You are a helpful campus assistant that can plan and execute tasks for students at DigiPen. Please be concise and accurate in handing off tasks to other agents as needed.",
+    handoffs=[building_agent, course_agent, handbook_agent],
+    tools=[],
 )
 
 
@@ -106,7 +132,13 @@ demo = gr.ChatInterface(
     title="DigiPen Campus Assistant",
     theme=gr.themes.Base(primary_hue="red", secondary_hue="slate"),
     examples=[
-        ["Where is the 'Hopper' room located?"],
+        "Where is the 'Hopper' room located?",
+        "I'm trying to find the WANIC classrooms. Can you help?",
+        "What's the policy for eating in auditoriums?",
+        "Where do I pickup my parking pass?",
+        "Tell me more about CS 205...",
+        "What are the prerequisites for FLM201?",
+        "Which courses should I consider if I'm interested in audio mixing techniques?",
     ],
     submit_btn=True,
     flagging_mode="manual",
