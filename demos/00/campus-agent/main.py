@@ -82,78 +82,75 @@ agent = Agent(
 
 
 async def chat_with_agent(user_msg: str, history: list):
-    current_message = ChatMessage(role="assistant", content="")
+    messages = [{"role": msg["role"], "content": msg["content"]} for msg in history]
+    messages.append({"role": "user", "content": user_msg})
+    responses = []
+    reply_created = False
+    active_agent = None
 
-    # Initialize context
-    context = {"response_buffer": "", "current_messages": [current_message]}
-
-    result = Runner.run_streamed(agent, user_msg)
+    result = Runner.run_streamed(agent, messages)
     async for event in result.stream_events():
-        print(event.type)
         if event.type == "raw_response_event":
-            # We will support streaming later on
-            continue
-        else:
-            if event.type == "agent_updated_stream_event":
-                print(event)
-                context["current_messages"].append(
+            if event.data.type == "response.output_text.delta":
+                if not reply_created:
+                    responses.append(ChatMessage(role="assistant", content=""))
+                    reply_created = True
+                responses[-1].content += event.data.delta
+        elif event.type == "agent_updated_stream_event":
+            active_agent = event.new_agent.name
+            responses.append(
+                ChatMessage(
+                    content=event.new_agent.name,
+                    metadata={"title": "Agent Now Running", "id": active_agent},
+                )
+            )
+        elif event.type == "run_item_stream_event":
+            if event.item.type == "tool_call_item":
+                if event.item.raw_item.type == "file_search_call":
+                    responses.append(
+                        ChatMessage(
+                            content=f"Query used: {event.item.raw_item.queries}",
+                            metadata={
+                                "title": "File Search Completed",
+                                "parent_id": active_agent,
+                            },
+                        )
+                    )
+                else:
+                    tool_name = getattr(event.item.raw_item, "name", "unknown_tool")
+                    tool_args = getattr(event.item.raw_item, "arguments", {})
+                    responses.append(
+                        ChatMessage(
+                            content=f"Calling tool {tool_name} with arguments {tool_args}",
+                            metadata={"title": "Tool Call", "parent_id": active_agent},
+                        )
+                    )
+            if event.item.type == "tool_call_output_item":
+                responses.append(
                     ChatMessage(
-                        role="assistant",
-                        content=f"{event.new_agent.name}",
-                        metadata={"title": "Agent Now Running"},
+                        content=f"Tool output: '{event.item.raw_item['output']}'",
+                        metadata={"title": "Tool Output", "parent_id": active_agent},
                     )
                 )
-            if event.type == "run_item_stream_event":
-                print(event.item)
-                if event.item.type == "tool_call_item":
-                    if event.item.raw_item.type == "file_search_call":
-                        context["current_messages"].append(
-                            ChatMessage(
-                                role="assistant",
-                                content="Searching the DigiPen vector store...",
-                                metadata={"title": "File Search"},
-                            )
-                        )
-                    else:
-                        tool_name = getattr(event.item.raw_item, "name", "unknown_tool")
-                        tool_args = getattr(event.item.raw_item, "arguments", {})
-                        context["current_messages"].append(
-                            ChatMessage(
-                                role="assistant",
-                                content=f"Calling tool {tool_name} with arguments {tool_args}",
-                                metadata={"title": "Tool Call"},
-                            )
-                        )
-                if event.item.type == "tool_call_output_item":
-                    context["current_messages"].append(
-                        ChatMessage(
-                            role="assistant",
-                            content=f"Tool output: '{event.item.raw_item['output']}'",
-                            metadata={"title": "Tool Output"},
-                        )
+            if event.item.type == "handoff_call_item":
+                responses.append(
+                    ChatMessage(
+                        content=f"Name: {event.item.raw_item.name}",
+                        metadata={
+                            "title": "Handing Off Request",
+                            "parent_id": active_agent,
+                        },
                     )
-                if event.item.type == "message_output_item":
-                    context["current_messages"].append(
-                        ChatMessage(
-                            role="assistant",
-                            content=event.item.raw_item.content[0].text,
-                        )
-                    )
-                if event.item.type == "handoff_call_item":
-                    context["current_messages"].append(
-                        ChatMessage(
-                            role="assistant",
-                            metadata={"title": "Handing Off Request"},
-                            content=f"Name: {event.item.raw_item.name}",
-                        )
-                    )
-        yield context.get("current_messages", [])
+                )
+        yield responses
 
 
 demo = gr.ChatInterface(
     chat_with_agent,
     title="DigiPen Campus Assistant",
-    theme=gr.themes.Base(primary_hue="red", secondary_hue="slate"),
+    theme=gr.themes.Soft(
+        primary_hue="red", secondary_hue="slate", font=[gr.themes.GoogleFont("Inter")]
+    ),
     examples=[
         "Where is the 'Hopper' room located?",
         "I'm trying to find the WANIC classrooms. Can you help?",
